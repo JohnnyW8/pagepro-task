@@ -16,7 +16,7 @@ const Comments = () => {
         getPostComments(postId)
     );
 
-    const renderComments = (
+    const renderComments = () => (
         <>
             {comments.map((comment) => (
                 <Comment key={comment.id} data={comment} />

@@ -18,7 +18,7 @@ const Users = () => {
         loadUsers();
     }, []);
 
-    const renderUsers = (
+    const renderUsers = () => (
         <Wrapper>
             {users.map((user) => (
                 <UserThumbnail key={user.id} data={user} />
