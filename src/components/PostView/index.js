@@ -40,7 +40,6 @@ export default function () {
     );
 
     if (isErrorPost && id) {
-        console.log("esr");
 
         toastr.warning("Fetch post data", "Something went wrong. Try again.");
         history.push(`/user/${id}`);

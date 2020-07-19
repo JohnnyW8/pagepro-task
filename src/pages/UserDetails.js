@@ -7,6 +7,8 @@ import Layout from 'components/Layout';
 import Posts from 'components/Posts';
 import Title from 'components/Title';
 
+import { ROUTES } from "config";
+
 import { TopBar } from './style'
 
 const UserDetails = () => {
@@ -15,7 +17,7 @@ const UserDetails = () => {
     return (
         <Layout>
             <TopBar>
-                <ButtonBack to="/" />
+                <ButtonBack to={ROUTES.ROOT} />
                 <Title title={userData.name} />
                 <AddPost type="post" title="Add post" />
             </TopBar>

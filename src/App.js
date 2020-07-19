@@ -12,15 +12,17 @@ import PageNotFound from "pages/404";
 import UserDetails from "pages/UserDetails";
 import PostDetails from "pages/PostDetails";
 
+import { ROUTES } from 'config';
+
 function App() {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/user/:id/:postId" component={PostDetails} />
-                <Route path="/user/:id" component={UserDetails} />
-                <Route exact path="/404" component={PageNotFound} />
-                <Redirect to="404" />
+                <Route exact path={ROUTES.ROOT} component={Homepage} />
+                <Route path={ROUTES.POST_DETAILS} component={PostDetails} />
+                <Route path={ROUTES.USER_DETAILS} component={UserDetails} />
+                <Route exact path={ROUTES.ERROR} component={PageNotFound} />
+                <Redirect to={ROUTES.ERROR} />
             </Switch>
         </Router>
     );
