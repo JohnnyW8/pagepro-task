@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import ButtonBack from "components/ButtonBack";
-import Layout from "components/Layout";
 import PostView from "components/PostView";
 import RemovePost from "components/RemovePost";
 import Title from "components/Title";
@@ -18,14 +17,14 @@ const PostDetails = () => {
     const { id, postId } = useParams();
 
     return (
-        <Layout>
+        <>
             <TopBar>
                 <ButtonBack to={generatePath(ROUTES.USER_DETAILS, { id })} />
                 <Title title={userData.name} />
                 <RemovePost postId={postId} userId={id} redirect={true} />
             </TopBar>
             <PostView />
-        </Layout>
+        </>
     );
 };
 
