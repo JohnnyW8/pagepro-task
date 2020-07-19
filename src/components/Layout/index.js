@@ -1,12 +1,10 @@
-import React from 'react';
-import { Section, Container } from './style';
+import React from "react";
+import { Section, Container } from "./style";
 
-const Layout = ({children}) => (
+const Layout = ({ children }) => (
     <Section>
-        <Container>
-            {children}
-        </Container>
+        <Container>{children}</Container>
     </Section>
-)
+);
 
 export default Layout;

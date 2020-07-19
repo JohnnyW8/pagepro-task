@@ -1,6 +1,6 @@
 import { toastr } from 'react-redux-toastr';
-import API from '../../api';
-import { GET_USERS } from '../types';
+import API from 'api';
+import { GET_USERS } from 'store/types';
 
 export const getUsers = () => async dispatch => {
     let list = [];

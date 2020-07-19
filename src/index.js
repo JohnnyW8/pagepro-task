@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import ReduxToastr from "react-redux-toastr";
 
-import { Provider } from 'react-redux';
-import store from './store'
-import ReduxToastr from 'react-redux-toastr';
+import App from "App";
+import store from "store";
+
+import "./index.css";
 
 ReactDOM.render(
     <Provider store={store}>
@@ -22,6 +23,6 @@ ReactDOM.render(
         <React.StrictMode>
             <App />
         </React.StrictMode>
-  </Provider>,
-  document.getElementById('root')
+    </Provider>,
+    document.getElementById("root")
 );

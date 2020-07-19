@@ -1,10 +1,10 @@
 import { toastr } from 'react-redux-toastr';
-import API from '../../api';
+import API from 'api';
 import { 
     GET_POST,
     GET_POST_COMMENTS,
     ADD_POST_COMMENT
-} from '../types';
+} from 'store/types';
 
 export const getPost = id => async dispatch => {
     let list = [];

@@ -1,13 +1,12 @@
-import React from 'react';
-import { Wrapper } from "./style";
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function ({text, to}) {
+import { Wrapper } from "./style";
+
+export default function ({ text, to }) {
     return (
         <Wrapper>
-            <Link to={to} >
-                {text}
-            </Link>
+            <Link to={to}>{text}</Link>
         </Wrapper>
-    )
+    );
 }

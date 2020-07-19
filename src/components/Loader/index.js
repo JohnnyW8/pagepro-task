@@ -1,12 +1,12 @@
 import React from 'react';
-import loaderIcon from './loader.svg'
+import IconLoader from './loader.svg'
 import { StyledLoader, Img } from './style'
 
 
 export default function ({ minHeight = '100px', position = 'relative' }) {
     return (
         <StyledLoader style={{ position, minHeight }}>
-            <Img src={loaderIcon} alt="Loader" />
+            <Img src={IconLoader} alt="Loader" />
         </StyledLoader>
     )
 }

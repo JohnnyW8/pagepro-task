@@ -2,14 +2,17 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import PostThumbnail from "../PostThumbnail";
-import { getUser, getUserPosts } from "../../store/actions/user";
-import useReduxAction from "../../hooks/useReduxAction";
-import Loader from "../Loader";
+
+import { getUser, getUserPosts } from "store/actions/user";
+
+import PostThumbnail from "components/PostThumbnail";
+import Loader from "components/Loader";
+
+import useReduxAction from "hooks/useReduxAction";
 
 export default function () {
     const { id } = useParams();
-    const { posts } = useSelector(state => state.user);
+    const { posts } = useSelector((state) => state.user);
     const [loadUser] = useReduxAction(() => getUser(id));
     const [loadUserPosts, isLoadingPosts] = useReduxAction(() =>
         getUserPosts(id)
@@ -17,7 +20,6 @@ export default function () {
 
     useEffect(() => {
         loadUserPosts();
-
         loadUser();
     }, []);
 

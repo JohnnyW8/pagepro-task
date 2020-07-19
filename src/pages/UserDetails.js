@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import Layout from '../components/Layout';
+
+import AddPost from 'components/AddItem';
+import ButtonBack from 'components/ButtonBack';
+import Layout from 'components/Layout';
+import Posts from 'components/Posts';
+import Title from 'components/Title';
+
 import { TopBar } from './style'
-import ButtonBack from '../components/ButtonBack';
-import Title from '../components/Title';
-import AddPost from '../components/AddItem';
-import Posts from '../components/Posts';
 
 const UserDetails = () => {
     const { data: userData } = useSelector(state => state.user);

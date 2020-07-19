@@ -2,10 +2,12 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getPostComments } from "../../store/actions/post";
-import Comment from "../Comment";
-import useReduxAction from "../../hooks/useReduxAction";
-import Loader from "../Loader";
+import { getPostComments } from "store/actions/post";
+
+import Comment from "components/Comment";
+import Loader from "components/Loader";
+
+import useReduxAction from "hooks/useReduxAction";
 
 export default function () {
     const { postId } = useParams();

@@ -1,6 +1,6 @@
 import React from 'react';
-import Users from '../components/Users';
-import Layout from '../components/Layout';
+import Layout from 'components/Layout';
+import Users from 'components/Users';
 
 const Homepage = () => (
     <Layout>

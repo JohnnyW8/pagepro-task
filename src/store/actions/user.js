@@ -1,11 +1,11 @@
 import { toastr } from 'react-redux-toastr';
-import API from '../../api';
+import API from 'api';
 import { 
     GET_USER_DATA, 
     GET_USER_POSTS,
     REMOVE_POST,
     ADD_POST
-} from '../types';
+} from 'store/types';
 
 
 export const getUser = id => async dispatch => {

@@ -1,5 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
+
 import { Div, A } from "./style";
 
 const makeAddress = ({ street, suite, city, zipcode }) => {

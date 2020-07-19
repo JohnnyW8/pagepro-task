@@ -1,5 +1,4 @@
-import { GET_USERS } from '../types';
-
+import { GET_USERS } from "store/types";
 
 export default function (state = [], action) {
     const { type, payload } = action;

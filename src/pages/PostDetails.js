@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import Layout from '../components/Layout';
-import { TopBar } from './style'
-import ButtonBack from '../components/ButtonBack';
-import Title from '../components/Title';
-import RemovePost from '../components/RemovePost';
 import { useParams } from 'react-router-dom';
-import PostView from '../components/PostView';
+
+import ButtonBack from 'components/ButtonBack';
+import Layout from 'components/Layout';
+import PostView from 'components/PostView';
+import RemovePost from 'components/RemovePost';
+import Title from 'components/Title';
+
+import { TopBar } from './style'
 
 
 const PostDetails = () => {
