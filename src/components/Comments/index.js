@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPostComments } from "store/actions/post";
+import { selectPostComments } from "store/selectors";
 
 import Comment from "components/Comment";
 import Loader from "components/Loader";
@@ -11,7 +12,7 @@ import useReduxAction from "hooks/useReduxAction";
 
 const Comments = () => {
     const { postId } = useParams();
-    const { comments } = useSelector((state) => state.post);
+    const comments = useSelector(selectPostComments);
     const [loadComments, isLoading] = useReduxAction(() =>
         getPostComments(postId)
     );

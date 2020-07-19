@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { getUser, getUserPosts } from "store/actions/user";
+import { selectAllPosts } from "store/selectors";
 
 import PostThumbnail from "components/PostThumbnail";
 import Loader from "components/Loader";
@@ -12,7 +13,7 @@ import useReduxAction from "hooks/useReduxAction";
 
 const Posts = () => {
     const { id } = useParams();
-    const { posts } = useSelector((state) => state.user);
+    const posts = useSelector(selectAllPosts);
     const [loadUser] = useReduxAction(() => getUser(id));
     const [loadUserPosts, isLoadingPosts] = useReduxAction(() =>
         getUserPosts(id)

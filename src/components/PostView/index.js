@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 
 import { getUser } from "store/actions/user";
 import { getPost } from "store/actions/post";
+import { selectPost } from "store/selectors";
 
 import AddComment from "components/AddItem";
 import Content from "components/Content";
@@ -16,7 +17,7 @@ import { Button, WrapperButtons } from "./style";
 
 const PostView = () => {
     const { id, postId } = useParams();
-    const { post } = useSelector((state) => state);
+    const post = useSelector(selectPost);
     const [showComments, setShowComments] = useState(false);
 
     const [loadUser] = useReduxAction(() => getUser(id));

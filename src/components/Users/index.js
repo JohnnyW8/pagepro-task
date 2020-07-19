@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { getUsers } from "store/actions/users";
+import { selectAllUsers } from "store/selectors";
 
 import UserThumbnail from "components/UserThumbnail";
 import Loader from "components/Loader";
@@ -11,7 +12,7 @@ import useReduxAction from "hooks/useReduxAction";
 import { Wrapper } from "./style";
 
 const Users = () => {
-    const { users } = useSelector((state) => state);
+    const users = useSelector(selectAllUsers);
     const [loadUsers, isLoading] = useReduxAction(() => getUsers());
 
     useEffect(() => {
