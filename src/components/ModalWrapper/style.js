@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { STYLES } from 'config';
 
 export const Box = styled.div`
     box-shadow: 5px 5px 5px 0px rgba(56, 54, 54, 0.4);
@@ -11,7 +12,7 @@ export const Box = styled.div`
     max-height: 95vh;
     transition: opacity 0.3s, top 0.3s;
     overflow-y: auto;
-    @media (min-width: 650px) {
+    @media (min-width: ${STYLES.MEDIA_MD}) {
         width: auto;
         min-width: 550px;
         max-width: 800px;
@@ -23,7 +24,7 @@ export const BoxWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: 10px 40px 40px;
-    background: rgba(60, 60, 60, 0.91);
+    background: ${STYLES.COLOR_MODAL_BG};
     width: 100%;
     height: 100%;
 `;

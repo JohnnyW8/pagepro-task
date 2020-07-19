@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { STYLES } from 'config';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -7,10 +8,10 @@ export const Wrapper = styled.div`
     a {
         padding: 25px;
         width: 100%;
-        color: #a2a8c1;
+        color: ${STYLES.COLOR_GREY_TEXT};
         letter-spacing: 0.25px;
         font-size: 16px;
-        background-color: #ffffff;
+        background-color: ${STYLES.COLOR_WHITE};
         text-align: center;
         cursor: pointer;
         border-bottom-left-radius: 4px;
@@ -20,7 +21,7 @@ export const Wrapper = styled.div`
         text-decoration: none;
         &:hover {
             color: white;
-            background-color: #3540ff;
+            background-color: ${STYLES.COLOR_BLUE};
         }
         
     }
