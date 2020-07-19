@@ -19,8 +19,7 @@ import {
     Button,
 } from "./style";
 
-
-export default function ({ type, title }) {
+const AddItem = ({ type, title }) => {
     const dispatch = useDispatch();
     const { id: userId, postId } = useParams();
     const [showModal, setShowModal] = useState(false);
@@ -104,4 +103,6 @@ export default function ({ type, title }) {
             </ModalWrapper>
         </>
     );
-}
+};
+
+export default AddItem;

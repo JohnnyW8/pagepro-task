@@ -8,7 +8,7 @@ import Icon from "components/Icon";
 import IconTrash from "media/icons/trash.svg";
 import { Button } from "./style";
 
-export default function ({ userId = null, postId, redirect = false }) {
+const RemovePost = ({ userId = null, postId, redirect = false }) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -22,4 +22,6 @@ export default function ({ userId = null, postId, redirect = false }) {
             <Icon src={IconTrash} />
         </Button>
     );
-}
+};
+
+export default RemovePost;

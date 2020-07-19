@@ -10,7 +10,7 @@ import { ROUTES } from "config";
 import IconArrowRight from "media/icons/right-arrow.svg";
 import { Element, Text } from "./style";
 
-export default function ({ data }) {
+const PostThumbnail = ({ data }) => {
     const { id: postId, userId, title } = data;
 
     return (
@@ -24,4 +24,5 @@ export default function ({ data }) {
             </Link>
         </Element>
     );
-}
+};
+export default PostThumbnail;

@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 import { Wrapper } from "./style";
 
-export default function ({ text, to }) {
+const Anchor = ({ text, to }) => {
     return (
         <Wrapper>
             <Link to={to}>{text}</Link>
         </Wrapper>
     );
-}
+};
+
+export default Anchor;

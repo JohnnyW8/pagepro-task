@@ -9,7 +9,7 @@ import Details from "./Details";
 import Anchor from "./Anchor";
 import { Block, Header, Footer } from "./style";
 
-export default function ({ data }) {
+const UserThumbnail = ({ data }) => {
     const { name, id } = data;
 
     return (
@@ -26,4 +26,6 @@ export default function ({ data }) {
             </Footer>
         </Block>
     );
-}
+};
+
+export default UserThumbnail;

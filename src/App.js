@@ -15,7 +15,7 @@ import Layout from "components/Layout";
 
 import { ROUTES } from 'config';
 
-function App() {
+const App = () => {
     return (
         <Router>
             <Layout>

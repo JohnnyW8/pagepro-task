@@ -1,7 +1,7 @@
 import React from "react";
 import { Element, Wrapper, A, Paragraph, H3 } from "./style";
 
-export default function ({ data }) {
+const Comment = ({ data }) => {
     const { name, email, body } = data;
 
     return (
@@ -13,4 +13,6 @@ export default function ({ data }) {
             <Paragraph>{body}</Paragraph>
         </Element>
     );
-}
+};
+
+export default Comment;

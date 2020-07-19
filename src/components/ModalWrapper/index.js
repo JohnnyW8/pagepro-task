@@ -9,7 +9,7 @@ import {
     BoxItems,
 } from "./style";
 
-export default function ({ show, children, close }) {
+const ModalWrapper = ({ show, children, close }) => {
     const closeIfClickedOut = (e) => {
         if (e.currentTarget === e.target) {
             const target = e.target;
@@ -35,4 +35,6 @@ export default function ({ show, children, close }) {
             </Box>
         </StyledModal>
     );
-}
+};
+
+export default ModalWrapper;

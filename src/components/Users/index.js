@@ -10,7 +10,7 @@ import Loader from "components/Loader";
 import useReduxAction from "hooks/useReduxAction";
 import { Wrapper } from "./style";
 
-export default function () {
+const Users = () => {
     const { users } = useSelector((state) => state);
     const [loadUsers, isLoading] = useReduxAction(() => getUsers());
 
@@ -24,3 +24,5 @@ export default function () {
 
     return isLoading ? <Loader /> : <Wrapper>{renderUsers()}</Wrapper>;
 }
+
+export default Users;

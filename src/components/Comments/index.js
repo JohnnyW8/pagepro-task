@@ -9,7 +9,7 @@ import Loader from "components/Loader";
 
 import useReduxAction from "hooks/useReduxAction";
 
-export default function () {
+const Comments = () => {
     const { postId } = useParams();
     const { comments } = useSelector((state) => state.post);
     const [loadComments, isLoading] = useReduxAction(() =>
@@ -27,4 +27,6 @@ export default function () {
     }, []);
 
     return isLoading ? <Loader /> : renderComments();
-}
+};
+
+export default Comments;

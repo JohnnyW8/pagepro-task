@@ -2,7 +2,7 @@
 import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 
-export default function (action) {
+const useReduxAction = (action) => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -28,4 +28,6 @@ export default function (action) {
     );
 
     return [asyncAction, loading, isError];
-}
+};
+
+export default useReduxAction;

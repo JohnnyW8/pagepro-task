@@ -18,7 +18,7 @@ import { Button, WrapperButtons } from "./style";
 const hideMessage = "Hide comments";
 const showMessage = "Show comments";
 
-export default function () {
+const PostView = () => {
     const { id, postId } = useParams();
     const history = useHistory();
     const { post } = useSelector((state) => state);
@@ -40,7 +40,6 @@ export default function () {
     );
 
     if (isErrorPost && id) {
-
         toastr.warning("Fetch post data", "Something went wrong. Try again.");
         history.push(`/user/${id}`);
     }
@@ -61,4 +60,6 @@ export default function () {
             {showComments && <Comments />}
         </>
     );
-}
+};
+
+export default PostView;

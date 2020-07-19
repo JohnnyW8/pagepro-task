@@ -1,7 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
 
-import { Div, A } from "./style";
+import { Text, StyledLink } from "./style";
 
 const makeAddress = ({ street, suite, city, zipcode }) => {
     return `
@@ -17,16 +17,18 @@ const makeCompanyInfo = ({ name, catchPhrase, bs }) => {
     `;
 };
 
-export default function ({ data }) {
+const Details = ({ data }) => {
     const { address, company, email } = data;
 
     return (
         <>
-            <A href={`mailto:${email}`} title={email} target="_blank">
+            <StyledLink href={`mailto:${email}`} title={email} target="_blank">
                 {email}
-            </A>
-            <Div>{parse(makeAddress(address))}</Div>
-            <Div>{parse(makeCompanyInfo(company))}</Div>
+            </StyledLink>
+            <Text>{parse(makeAddress(address))}</Text>
+            <Text>{parse(makeCompanyInfo(company))}</Text>
         </>
     );
 }
+
+export default Details; 

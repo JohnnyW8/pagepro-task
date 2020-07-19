@@ -10,7 +10,7 @@ import Loader from "components/Loader";
 
 import useReduxAction from "hooks/useReduxAction";
 
-export default function () {
+const Posts = () => {
     const { id } = useParams();
     const { posts } = useSelector((state) => state.user);
     const [loadUser] = useReduxAction(() => getUser(id));
@@ -28,4 +28,6 @@ export default function () {
     }, [posts]);
 
     return <>{isLoadingPosts ? <Loader /> : renderPosts()}</>;
-}
+};
+
+export default Posts;
