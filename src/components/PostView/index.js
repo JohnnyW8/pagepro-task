@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { toastr } from "react-redux-toastr";
 
 import { getUser } from "store/actions/user";
 import { getPost } from "store/actions/post";
@@ -15,19 +14,13 @@ import Loader from "components/Loader";
 import useReduxAction from "hooks/useReduxAction";
 import { Button, WrapperButtons } from "./style";
 
-const hideMessage = "Hide comments";
-const showMessage = "Show comments";
-
 const PostView = () => {
     const { id, postId } = useParams();
-    const history = useHistory();
     const { post } = useSelector((state) => state);
     const [showComments, setShowComments] = useState(false);
 
     const [loadUser] = useReduxAction(() => getUser(id));
-    const [loadPost, isLoadingPost, isErrorPost] = useReduxAction(() =>
-        getPost(postId)
-    );
+    const [loadPost, isLoadingPost] = useReduxAction(() => getPost(postId));
 
     useEffect(() => {
         loadUser();
@@ -39,11 +32,6 @@ const PostView = () => {
         []
     );
 
-    if (isErrorPost && id) {
-        toastr.warning("Fetch post data", "Something went wrong. Try again.");
-        history.push(`/user/${id}`);
-    }
-
     return isLoadingPost ? (
         <Loader />
     ) : (
@@ -51,7 +39,7 @@ const PostView = () => {
             <Content {...post.data} />
             <WrapperButtons>
                 <Button onClick={handleToggleComments}>
-                    {showComments ? hideMessage : showMessage}
+                    {showComments ? "Hide comments" : "Show comments"}
                 </Button>
                 {showComments && (
                     <AddComment type="comment" title="Add comment" />

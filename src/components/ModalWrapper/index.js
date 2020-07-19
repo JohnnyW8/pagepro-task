@@ -24,7 +24,7 @@ const ModalWrapper = ({ show, children, close }) => {
     };
 
     return (
-        <StyledModal show={show ? 1 : 0} onMouseDown={closeIfClickedOut}>
+        <StyledModal show={show} onMouseDown={closeIfClickedOut}>
             <Box>
                 <BoxWrapper>
                     <BoxClose onClick={close}>
