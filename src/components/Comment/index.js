@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Element, Wrapper, A, Paragraph, H3 } from "./style";
 
 const Comment = ({ data }) => {
@@ -15,4 +15,4 @@ const Comment = ({ data }) => {
     );
 };
 
-export default Comment;
+export default memo(Comment);

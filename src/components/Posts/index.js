@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -23,11 +23,15 @@ const Posts = () => {
         loadUser();
     }, []);
 
-    const renderPosts = useCallback(() => {
-        return posts.map((post) => <PostThumbnail key={post.id} data={post} />);
-    }, [posts]);
+    const renderPosts = () => (
+        <>
+            {posts.map((post) => (
+                <PostThumbnail key={post.id} data={post} />
+            ))}
+        </>
+    );
 
-    return <>{isLoadingPosts ? <Loader /> : renderPosts()}</>;
+    return isLoadingPosts ? <Loader /> : renderPosts();
 };
 
 export default Posts;

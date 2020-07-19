@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import Title from "components/Title";
 
@@ -28,4 +28,4 @@ const UserThumbnail = ({ data }) => {
     );
 };
 
-export default UserThumbnail;
+export default memo(UserThumbnail);

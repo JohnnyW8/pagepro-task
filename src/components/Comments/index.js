@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPostComments } from "store/actions/post";
@@ -16,11 +16,13 @@ const Comments = () => {
         getPostComments(postId)
     );
 
-    const renderComments = useCallback(() => {
-        return comments.map((comment) => (
-            <Comment key={comment.id} data={comment} />
-        ));
-    }, [comments]);
+    const renderComments = (
+        <>
+            {comments.map((comment) => (
+                <Comment key={comment.id} data={comment} />
+            ))}
+        </>
+    );
 
     useEffect(() => {
         loadComments();

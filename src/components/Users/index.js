@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { getUsers } from "store/actions/users";
@@ -18,11 +18,15 @@ const Users = () => {
         loadUsers();
     }, []);
 
-    const renderUsers = useCallback(() => {
-        return users.map((user) => <UserThumbnail key={user.id} data={user} />);
-    }, [users]);
+    const renderUsers = (
+        <Wrapper>
+            {users.map((user) => (
+                <UserThumbnail key={user.id} data={user} />
+            ))}
+        </Wrapper>
+    );
 
-    return isLoading ? <Loader /> : <Wrapper>{renderUsers()}</Wrapper>;
-}
+    return isLoading ? <Loader /> : renderUsers();
+};
 
 export default Users;
