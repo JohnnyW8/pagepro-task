@@ -6,6 +6,11 @@ const initialState = {
     comments: [],
 };
 
+const addComment = (state, newItem) => [
+    keyToNumber(newItem, "postId"),
+    ...state,
+];
+
 export default function (state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
@@ -22,7 +27,7 @@ export default function (state = initialState, action) {
         case ADD_POST_COMMENT:
             return {
                 ...state,
-                comments: [keyToNumber(payload, "postId"), ...state.comments],
+                comments: addComment(state.comments, payload),
             };
         default:
             return state;

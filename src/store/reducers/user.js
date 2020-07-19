@@ -14,6 +14,8 @@ const initialState = {
 const removePost = (state, id) =>
     id ? state.filter((val) => val.id !== id) : state;
 
+const addPost = (state, newItem) => [keyToNumber(newItem, "userId"), ...state];
+
 export default function (state = initialState, action) {
     const { type, payload } = action;
 
@@ -36,7 +38,7 @@ export default function (state = initialState, action) {
         case ADD_POST:
             return {
                 ...state,
-                posts: [keyToNumber(payload, "userId"), ...state.posts],
+                posts: addPost(state.posts, payload),
             };
         default:
             return state;
