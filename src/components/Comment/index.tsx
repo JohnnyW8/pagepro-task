@@ -1,10 +1,9 @@
 import React, { memo } from "react";
 import { Element, Wrapper, A, Paragraph, H3 } from "./style";
+import { IComment } from "store/model";
 
 interface Props {
-    data: {
-        name: string, email: string, body: string
-    }
+    data: IComment
 }
 
 const Comment: React.FC<Props> = ({ data }) => {

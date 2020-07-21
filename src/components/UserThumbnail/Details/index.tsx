@@ -1,9 +1,11 @@
 import React from "react";
 import parse from "html-react-parser";
 
-import { makeAddress, makeCompanyInfo } from "./helpers";
-import { Props } from './model';
+import { IUser } from "store/model";
+import { makeAddress, makeCompanyInfo } from "helpers/makeDetails";
 import { Text, StyledLink } from "./style";
+
+type Props = IUser;
 
 const Details: React.FC<Props> = ({ address, company, email }) => {
     return (

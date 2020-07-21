@@ -51,7 +51,7 @@ interface ParamTypes {
     postId: string;
 }
 
-const useModalFormManagement = (isPostModal: boolean, close: any) => {
+const useFormManagement = (isPostModal: boolean, close: any) => {
     const dispatch = useDispatch();
     const [validationSchema] = useState(
         isPostModal ? ValidationPost : ValidationComment
@@ -80,4 +80,4 @@ const useModalFormManagement = (isPostModal: boolean, close: any) => {
     };
 };
 
-export default useModalFormManagement;
+export default useFormManagement;

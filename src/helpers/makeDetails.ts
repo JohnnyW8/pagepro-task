@@ -1,5 +1,11 @@
-import { MakeAddress, MakeCompanyInfo } from './model';
+import { IAddress, ICompany } from "store/model";
 
+interface MakeAddress {
+    (address: IAddress): string;
+}
+interface MakeCompanyInfo {
+    (company: ICompany): string;
+}
 export const makeAddress: MakeAddress = ({ street, suite, city, zipcode }) => {
     return `
         ${street} ${suite} <br/>

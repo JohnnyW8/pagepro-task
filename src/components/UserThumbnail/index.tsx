@@ -1,17 +1,17 @@
 import React, { memo } from "react";
 
+import { IUser } from "store/model";
 import Title from "components/Title";
-import { User } from "store/model";
 
 import { generatePath } from "helpers/generatePath";
-import { ROUTES } from "config";
 
 import Details from "./Details";
 import Anchor from "./Anchor";
 import { Block, Header, Footer } from "./style";
+import { ROUTES } from "config";
 
 interface Props {
-    data: User;
+    data: IUser;
 }
 
 const UserThumbnail: React.FC<Props> = ({ data }) => {

@@ -11,19 +11,12 @@ import Loader from "components/Loader";
 
 import useReduxAction from "hooks/useReduxAction";
 
-interface Post {
-    id: number;
-    userId: number;
-    title: string;
-    body: string;
-}
-
 const Posts = () => {
-    const { id } = useParams();
+    const { id } = useParams<{ id: string }>();
     const posts = useSelector(selectAllPosts);
-    const [loadUser] = useReduxAction(() => getUser(id));
+    const [loadUser] = useReduxAction(() => getUser(+id));
     const [loadUserPosts, isLoadingPosts] = useReduxAction(() =>
-        getUserPosts(id)
+        getUserPosts(+id)
     );
 
     useEffect(() => {
@@ -33,7 +26,7 @@ const Posts = () => {
 
     const renderPosts = () => (
         <>
-            {posts.map((post: Post) => (
+            {posts.map((post) => (
                 <PostThumbnail key={post.id} data={post} />
             ))}
         </>

@@ -1,24 +1,30 @@
 import { keyToNumber } from "helpers/keyToNumber";
-import { Comment, Post } from "store/model";
+import { IComment, IPost } from "store/model";
 
-interface AddComment {
-    (a: Comment[], b: Comment): Comment[];
+interface IAddComment {
+    (a: IComment[], b: IComment): IComment[];
 }
-interface RemovePost {
-    (a: Post[], b: number): Post[];
+interface IRemovePost {
+    (a: IPost[], b: number): IPost[];
 }
-interface AddPost {
-    (a: Post[], b: Post): Post[];
+interface IAddPost {
+    (a: IPost[], b: IPost): IPost[];
 }
 
-export const addCommentHelper: AddComment = (state, newItem) => [
+const addCommentHelper: IAddComment = (state, newItem) => [
     keyToNumber(newItem, "postId"),
     ...state,
 ];
-export const removePostHelper: RemovePost = (state, id) =>
+const removePostHelper: IRemovePost = (state, id) =>
     state.filter((val) => val.id !== id);
 
-export const addPostHelper: AddPost = (state, newItem) => [
+const addPostHelper: IAddPost = (state, newItem) => [
     keyToNumber(newItem, "userId"),
     ...state,
 ];
+
+export {
+    addCommentHelper,
+    removePostHelper,
+    addPostHelper
+}

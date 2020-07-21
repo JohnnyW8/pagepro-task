@@ -1,24 +1,28 @@
-export interface User {
+export interface IAddress {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+}
+
+export interface ICompany {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+}
+
+export interface IUser {
     id: number;
     name: string;
     username: string;
     email: string;
     phone: string;
     website: string;
-    address: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-    };
-    company: {
-        name: string;
-        catchPhrase: string;
-        bs: string;
-    };
+    address: IAddress;
+    company: ICompany;
 }
 
-export interface Comment {
+export interface IComment {
     id: number;
     postId: number;
     name: string;
@@ -26,27 +30,27 @@ export interface Comment {
     body: string;
 }
 
-export interface Post {
+export interface IPost {
     id: number;
     userId: number;
     title: string;
     body: string;
 }
 
-export interface Users {
-    users: User[];
+export interface IUsers {
+    users: IUser[];
 }
 
-export interface PostData {
+export interface IPostData {
     post: {
-        data: Post;
-        comments: Comment[];
+        data: IPost;
+        comments: IComment[];
     };
 }
 
-export interface UserData {
+export interface IUserData {
     user: {
-        data: User;
-        posts: Post[];
+        data: IUser;
+        posts: IPost[];
     };
 }

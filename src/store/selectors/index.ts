@@ -1,11 +1,11 @@
-import { Users, PostData, UserData } from 'store/model';
+import { IUsers, IPostData, IUserData } from 'store/model';
 
-export const selectAllUsers = (state: Users) => state.users;
+export const selectAllUsers = (state: IUsers) => state.users;
 
-export const selectPost = (state: PostData) => state.post.data;
+export const selectPost = (state: IPostData) => state.post.data;
 
-export const selectPostComments = (state: PostData) => state.post.comments;
+export const selectPostComments = (state: IPostData) => state.post.comments;
 
-export const selectUserData = (state: UserData) => state.user.data;
+export const selectUserData = (state: IUserData) => state.user.data;
 
-export const selectAllPosts = (state: UserData) => state.user.posts;
+export const selectAllPosts = (state: IUserData) => state.user.posts;

@@ -1,8 +1,9 @@
+import { Dispatch } from "redux";
 import { toastr } from "react-redux-toastr";
 import API from "api";
 
 type ApiTypes = "get" | "post" | "delete";
-interface Params {
+interface DispatchApiAction {
     (
         url: string,
         action: string,
@@ -16,7 +17,7 @@ interface Params {
     ): any;
 }
 
-export const dispatchApiAction: Params = (
+export const dispatchApiAction: DispatchApiAction = (
     url: string,
     action: string,
     options?: {
@@ -26,7 +27,7 @@ export const dispatchApiAction: Params = (
         params?: object;
         itemId?: number;
     }
-): any => async (dispatch: any) => {
+) => async (dispatch: Dispatch) => {
     const {
         errorMessage = "Something went wrong. Try again.",
         type = "get",

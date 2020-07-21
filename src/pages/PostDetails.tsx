@@ -16,14 +16,19 @@ import { TopBar } from "./style";
 
 const PostDetails: React.FC = () => {
     const userData = useSelector(selectUserData);
-    const { id, postId } = useParams();
+    const { id, postId } = useParams<{
+        id: string;
+        postId: string;
+    }>();
 
     return (
         <>
             <TopBar>
-                <ButtonBack to={generatePath(ROUTES.USER_DETAILS, { id })} />
+                <ButtonBack
+                    to={generatePath(ROUTES.USER_DETAILS, { id: +id })}
+                />
                 <Title title={userData.name} />
-                <RemovePost postId={postId} userId={id} redirect={true} />
+                <RemovePost postId={+postId} userId={+id} redirect={true} />
             </TopBar>
             <PostView />
         </>

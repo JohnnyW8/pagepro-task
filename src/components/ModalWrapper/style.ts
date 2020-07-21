@@ -5,6 +5,26 @@ interface ModalProps {
     show: boolean;
 }
 
+export const StyledModal = styled.div<ModalProps>`
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transition: opacity 0.3s;
+    ${(props) =>
+        !props.show &&
+        css`
+            opacity: 0;
+            pointer-events: none;
+            ${Box} {
+                top: 45%;
+                opacity: 0;
+            }
+        `}
+`;
+
 export const Box = styled.div`
     box-shadow: 5px 5px 5px 0px rgba(56, 54, 54, 0.4);
     position: absolute;
@@ -49,22 +69,3 @@ export const BoxItems = styled.div`
     overflow-y: auto;
 `;
 
-export const StyledModal = styled.div<ModalProps>`
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    transition: opacity 0.3s;
-    ${(props) =>
-        !props.show &&
-        css`
-            opacity: 0;
-            pointer-events: none;
-            ${Box} {
-                top: 45%;
-                opacity: 0;
-            }
-        `}
-`;

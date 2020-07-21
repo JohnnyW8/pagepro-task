@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
 import { getPostComments } from "store/actions/post";
 import { selectPostComments } from "store/selectors";
 
@@ -10,24 +11,16 @@ import Loader from "components/Loader";
 
 import useReduxAction from "hooks/useReduxAction";
 
-interface Comment {
-    postId: number;
-    id: number;
-    name: string;
-    email: string;
-    body: string;
-}
-
 const Comments = () => {
-    const { postId } = useParams();
+    const { postId } = useParams<{ postId: string }>();
     const comments = useSelector(selectPostComments);
     const [loadComments, isLoading] = useReduxAction(() =>
-        getPostComments(postId)
+        getPostComments(+postId)
     );
 
     const renderComments = () => (
         <>
-            {comments.map((comment: Comment) => (
+            {comments.map((comment) => (
                 <Comment key={comment.id} data={comment} />
             ))}
         </>

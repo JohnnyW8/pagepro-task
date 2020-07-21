@@ -1,17 +1,12 @@
 import React from "react";
+import { IPost } from "store/model";
 import { H2, Paragraph } from "./style";
 
 interface Props {
-    data: {
-        id: number;
-        userId: number;
-        title: string;
-        body: string;
-    }
-
+    data: IPost;
 }
 
-const Content: React.FC<Props> = ({data}) => {
+const Content: React.FC<Props> = ({ data }) => {
     const { title, body } = data;
     return (
         <>

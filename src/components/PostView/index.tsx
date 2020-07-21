@@ -16,10 +16,13 @@ import useReduxAction from "hooks/useReduxAction";
 import { Button, WrapperButtons } from "./style";
 
 const PostView: React.FC = () => {
-    const { id, postId } = useParams();
+    const { id, postId } = useParams<{
+        id: string;
+        postId: string;
+    }>();
     const post = useSelector(selectPost);
     const [showComments, setShowComments] = useState(false);
-    
+
     const [loadUser] = useReduxAction(() => getUser(+id));
     const [loadPost, isLoadingPost] = useReduxAction(() => getPost(+postId));
 
