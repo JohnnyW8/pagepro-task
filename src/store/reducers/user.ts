@@ -3,40 +3,21 @@ import {
     GET_USER_POSTS,
     REMOVE_POST,
     ADD_POST,
+    UserState,
+    // UserActionTypes,
 } from "store/types";
-import { keyToNumber } from "helpers/keyToNumber";
+import { removePostHelper, addPostHelper } from "helpers/modifyStore";
 
-const initialState = {
+const initialState: UserState = {
     data: {},
     posts: [],
 };
-interface Post {
-    id: number;
-    userId: number;
-    body: string;
-    title: string;
-}
-
-interface RemovePost {
-    (a: Post[], b: number): Post[];
-}
-
-interface AddPost {
-    (a: Post[], b: Post): Post[];
-}
-
-const removePost: RemovePost = (state, id) =>
-    state.filter((val) => val.id !== id);
-
-const addPost: AddPost = (state, newItem) => [
-    keyToNumber(newItem, "userId"),
-    ...state,
-];
 
 export default function (
     state = initialState,
     action: { type: string; payload: any }
-) {
+    // action: UserActionTypes
+): UserState {
     const { type, payload } = action;
 
     switch (type) {
@@ -53,12 +34,12 @@ export default function (
         case REMOVE_POST:
             return {
                 ...state,
-                posts: removePost(state.posts, payload),
+                posts: removePostHelper(state.posts, payload),
             };
         case ADD_POST:
             return {
                 ...state,
-                posts: addPost(state.posts, payload),
+                posts: addPostHelper(state.posts, payload),
             };
         default:
             return state;

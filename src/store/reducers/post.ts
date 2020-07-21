@@ -1,29 +1,22 @@
-import { GET_POST, GET_POST_COMMENTS, ADD_POST_COMMENT } from "store/types";
-import { keyToNumber } from "helpers/keyToNumber";
+import {
+    GET_POST,
+    GET_POST_COMMENTS,
+    ADD_POST_COMMENT,
+    PostState,
+    // PostActionTypes,
+} from "store/types";
+import { addCommentHelper } from "helpers/modifyStore";
 
-const initialState = {
+const initialState: PostState = {
     data: {},
     comments: [],
 };
-interface Comment {
-    id: number;
-    postId: number;
-    name: string;
-    email: string;
-    body: string;
-}
-interface AddComment {
-    (a: Comment[], b: Comment): Comment[];
-}
-const addComment: AddComment = (state, newItem) => [
-    keyToNumber(newItem, "postId"),
-    ...state,
-];
 
 export default function (
     state = initialState,
     action: { type: string; payload: any }
-) {
+    // action: PostActionTypes
+): PostState {
     const { type, payload } = action;
     switch (type) {
         case GET_POST:
@@ -39,7 +32,7 @@ export default function (
         case ADD_POST_COMMENT:
             return {
                 ...state,
-                comments: addComment(state.comments, payload),
+                comments: addCommentHelper(state.comments, payload),
             };
         default:
             return state;

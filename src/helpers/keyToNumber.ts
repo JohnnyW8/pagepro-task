@@ -1,4 +1,4 @@
-type KeyId = "userId" | 'postId';
+type KeyId = "userId" | "postId";
 interface KeyToNumber {
     (
         a: {

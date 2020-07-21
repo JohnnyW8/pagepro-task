@@ -15,13 +15,6 @@ import Loader from "components/Loader";
 import useReduxAction from "hooks/useReduxAction";
 import { Button, WrapperButtons } from "./style";
 
-interface Post {
-    id: number;
-    userId: number;
-    title: string;
-    body: string;
-}
-
 const PostView: React.FC = () => {
     const { id, postId } = useParams();
     const post = useSelector(selectPost);

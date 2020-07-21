@@ -1,8 +1,13 @@
-import { GET_USERS } from "store/types";
+import { GET_USERS, UsersActionTypes, UsersState } from "store/types";
 
-export default function (state = [], action: {type: string, payload: string}) {
+const initialState: UsersState = [];
+
+export default function (
+    state = initialState,
+    action: UsersActionTypes
+): UsersState {
     const { type, payload } = action;
-    
+
     switch (type) {
         case GET_USERS:
             return payload;
