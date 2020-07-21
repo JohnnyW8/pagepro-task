@@ -13,13 +13,11 @@ import Comments from "components/Comments";
 import Loader from "components/Loader";
 
 import useReduxAction from "hooks/useReduxAction";
+import { ParamTypes } from "types";
 import { Button, WrapperButtons } from "./style";
 
 const PostView: React.FC = () => {
-    const { id, postId } = useParams<{
-        id: string;
-        postId: string;
-    }>();
+    const { id, postId } = useParams<ParamTypes>();
     const post = useSelector(selectPost);
     const [showComments, setShowComments] = useState(false);
 

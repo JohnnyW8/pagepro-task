@@ -54,3 +54,11 @@ export interface IUserData {
         posts: IPost[];
     };
 }
+
+export interface ParamId {
+    id: string;
+}
+export interface ParamPostId {
+    postId: string;
+}
+export interface ParamTypes extends ParamId, ParamPostId {}

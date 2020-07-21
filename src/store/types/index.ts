@@ -1,7 +1,7 @@
 import { Action } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "store/reducers";
-import { IUser, IPost, IComment } from "store/model";
+import { IUser, IPost, IComment } from "types";
 
 export const GET_USERS = "GET_USERS";
 export const GET_USER_DATA = "GET_USER_DATA";

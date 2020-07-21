@@ -1,4 +1,4 @@
-import { IAddress, ICompany } from "store/model";
+import { IAddress, ICompany } from "types";
 
 interface MakeAddress {
     (address: IAddress): string;

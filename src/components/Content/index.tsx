@@ -1,5 +1,5 @@
 import React from "react";
-import { IPost } from "store/model";
+import { IPost } from "types";
 import { H2, Paragraph } from "./style";
 
 interface Props {

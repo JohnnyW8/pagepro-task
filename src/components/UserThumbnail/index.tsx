@@ -1,10 +1,10 @@
 import React, { memo } from "react";
 
-import { IUser } from "store/model";
 import Title from "components/Title";
 
 import { generatePath } from "helpers/generatePath";
 
+import { IUser } from "types";
 import Details from "./Details";
 import Anchor from "./Anchor";
 import { Block, Header, Footer } from "./style";

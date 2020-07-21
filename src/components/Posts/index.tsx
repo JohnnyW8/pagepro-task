@@ -10,9 +10,10 @@ import PostThumbnail from "components/PostThumbnail";
 import Loader from "components/Loader";
 
 import useReduxAction from "hooks/useReduxAction";
+import { ParamId } from "types";
 
 const Posts = () => {
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<ParamId>();
     const posts = useSelector(selectAllPosts);
     const [loadUser] = useReduxAction(() => getUser(+id));
     const [loadUserPosts, isLoadingPosts] = useReduxAction(() =>

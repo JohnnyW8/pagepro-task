@@ -6,6 +6,7 @@ import * as Yup from "yup";
 
 import { addPost } from "store/actions/user";
 import { addComment } from "store/actions/post";
+import { ParamTypes } from "types";
 
 const ValidationPost = Yup.object().shape({
     title: Yup.string()
@@ -44,11 +45,6 @@ interface FormValues {
     email?: string;
     name?: string;
     body: string;
-}
-
-interface ParamTypes {
-    id: string;
-    postId: string;
 }
 
 const useFormManagement = (isPostModal: boolean, close: any) => {

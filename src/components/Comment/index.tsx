@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Element, Wrapper, A, Paragraph, H3 } from "./style";
-import { IComment } from "store/model";
+import { IComment } from "types";
 
 interface Props {
     data: IComment

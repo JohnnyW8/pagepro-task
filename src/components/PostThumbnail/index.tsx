@@ -9,7 +9,7 @@ import { generatePath } from "helpers/generatePath";
 import IconArrowRight from "media/icons/right-arrow.svg";
 import { Element, Text } from "./style";
 import { ROUTES } from "config";
-import { IPost } from "store/model";
+import { IPost } from "types";
 
 interface Props {
     data: IPost;

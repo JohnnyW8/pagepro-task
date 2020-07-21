@@ -1,5 +1,5 @@
 import { keyToNumber } from "helpers/keyToNumber";
-import { IComment, IPost } from "store/model";
+import { IComment, IPost } from "types";
 
 interface IAddComment {
     (a: IComment[], b: IComment): IComment[];

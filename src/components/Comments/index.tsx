@@ -10,9 +10,10 @@ import Comment from "components/Comment";
 import Loader from "components/Loader";
 
 import useReduxAction from "hooks/useReduxAction";
+import { ParamPostId } from "types";
 
 const Comments = () => {
-    const { postId } = useParams<{ postId: string }>();
+    const { postId } = useParams<ParamPostId>();
     const comments = useSelector(selectPostComments);
     const [loadComments, isLoading] = useReduxAction(() =>
         getPostComments(+postId)

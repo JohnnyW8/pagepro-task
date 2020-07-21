@@ -1,4 +1,4 @@
-import { IUsers, IPostData, IUserData } from 'store/model';
+import { IUsers, IPostData, IUserData } from 'types';
 
 export const selectAllUsers = (state: IUsers) => state.users;
 

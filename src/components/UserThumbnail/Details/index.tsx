@@ -1,8 +1,8 @@
 import React from "react";
 import parse from "html-react-parser";
 
-import { IUser } from "store/model";
 import { makeAddress, makeCompanyInfo } from "helpers/makeDetails";
+import { IUser } from "types";
 import { Text, StyledLink } from "./style";
 
 type Props = IUser;
