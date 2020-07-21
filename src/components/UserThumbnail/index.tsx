@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 
 import Title from "components/Title";
+import { User } from "store/model";
 
 import { generatePath } from "helpers/generatePath";
 import { ROUTES } from "config";
@@ -10,35 +11,17 @@ import Anchor from "./Anchor";
 import { Block, Header, Footer } from "./style";
 
 interface Props {
-    data: {
-        id: number;
-        name: string;
-        username: string;
-        email: string;
-        phone: string;
-        website: string;
-        address: {
-            street: string;
-            suite: string;
-            city: string;
-            zipcode: string;
-        },
-        company: {
-            name: string;
-            catchPhrase: string;
-            bs: string;
-        }
-    }
+    data: User;
 }
 
 const UserThumbnail: React.FC<Props> = ({ data }) => {
     const { name, id } = data;
-    
+
     return (
         <Block>
             <Header>
                 <Title title={name} />
-                <Details data={data} />
+                <Details {...data} />
             </Header>
             <Footer>
                 <Anchor

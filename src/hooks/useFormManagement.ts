@@ -38,11 +38,17 @@ const initComment = {
     name: "",
     body: "",
 };
+
 interface FormValues {
+    title?: string;
     email?: string;
     name?: string;
-    title?: string;
     body: string;
+}
+
+interface ParamTypes {
+    id: string;
+    postId: string;
 }
 
 const useModalFormManagement = (isPostModal: boolean, close: any) => {
@@ -53,7 +59,7 @@ const useModalFormManagement = (isPostModal: boolean, close: any) => {
     const [initialValues] = useState<FormValues>(
         isPostModal ? initPost : initComment
     );
-    const { id: userId, postId } = useParams();
+    const { id: userId, postId } = useParams<ParamTypes>();
     const handleSubmit = useCallback(
         async (values: FormValues, actions: any) => {
             const action = isPostModal

@@ -11,26 +11,6 @@ import Loader from "components/Loader";
 import useReduxAction from "hooks/useReduxAction";
 import { Wrapper } from "./style";
 
-interface User {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    phone: string;
-    website: string;
-    address: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-    };
-    company: {
-        name: string;
-        catchPhrase: string;
-        bs: string;
-    };
-}
-
 const Users: React.FC = () => {
     const users = useSelector(selectAllUsers);
     const [loadUsers, isLoading] = useReduxAction(() => getUsers());
@@ -41,7 +21,7 @@ const Users: React.FC = () => {
 
     const renderUsers = () => (
         <Wrapper>
-            {users.map((user: User) => (
+            {users.map((user) => (
                 <UserThumbnail key={user.id} data={user} />
             ))}
         </Wrapper>
